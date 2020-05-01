@@ -12,10 +12,8 @@ $('.next').click(function() {
     //creo la variabile immagine successiva per recuperarla
     var img_successiva = img_corrente.next('img');
     //creo la variabile pallino successivo per recuperarlo
-    var pallino_successivo = pallino_corrente.next('.fa-circle')
-
+    var pallino_successivo = pallino_corrente.next('.fa-circle');
     //verifico che esista una img successiva
-
     if (img_successiva.length != 0) {
         //esiste l'img successiva quindi modifico l'img successiva con la classe active
         img_successiva.addClass('active');
@@ -42,9 +40,7 @@ $('.prev').click(function() {
     //creo la variabile immagine precedente per recuperarla
     var img_precedente = img_corrente.prev('img');
     console.log(img_precedente);
-
     //verifico che esista una img img_precedente
-
     if(img_precedente.length != 0) {
     //modifico l'img precedente con la classe active
         img_precedente.addClass('active');
@@ -55,3 +51,8 @@ $('.prev').click(function() {
         img_precedente.addClass('active');
     }
 });
+
+//intercetto il click sul pallino_corrente
+// $('.fa-circle').click(function() {
+//   var index = $( ".fa-circle" ).index(this);
+// });
