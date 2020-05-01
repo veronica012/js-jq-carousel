@@ -9,13 +9,14 @@
     margin: auto;
     display: flex;
     align-items: center;
+    background-color: black;
 
 }
 .slider {
     width: 100%;
     height: 60%;
     /* margin: auto; */
-    background-color: black;
+
 }
 .prev, .slide, .next {
     float: left;
@@ -26,7 +27,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s;
     cursor: pointer;
 }
 .prev, .next i {
@@ -55,7 +55,10 @@
     bottom: 10%;
 }
 .dots i {
-    font-size: 15px;
+    font-size: 10px;
     margin-left: 10px;
     cursor: pointer;
+}
+.dots i.active {
+    color: black;
 }
