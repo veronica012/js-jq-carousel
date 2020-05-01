@@ -52,7 +52,18 @@ $('.prev').click(function() {
     }
 });
 
-//intercetto il click sul pallino_corrente
-// $('.fa-circle').click(function() {
-//   var index = $( ".fa-circle" ).index(this);
-// });
+//rendere i pallini cliccabili
+//intercettare il click sui pallini
+  $('.dots i').click(function(){
+    //creo la variabile per recupera l'indice_corrente
+    var indice_corrente = $(this).index();
+    //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
+    var elemento_corrente = $('img').eq(indice_corrente);
+    //rimuovo su immagine corrente la classe active
+    $('img.active').removeClass('active');
+    //modifico elemento corrente con la classe active
+    elemento_corrente.addClass('active');
+    
+    $('i.active').removeClass('active');
+    $('this').addClass('active');
+  });
