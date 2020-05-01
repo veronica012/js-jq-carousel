@@ -37,10 +37,12 @@ $('.prev').click(function() {
     //verifico che esista una img img_precedente
 
     if(img_precedente.length != 0) {
-        //modifico l'img precedente con la classe active
+    //modifico l'img precedente con la classe active
         img_precedente.addClass('active');
-    } else 
-
-
-
-})
+    } else {
+         //se non c'è l'img precedente
+         //torno sull'ultima foto e applico la classe active
+        img_precedente = $('img:last-of-type');
+        img_precedente.addClass('active');
+    }
+});

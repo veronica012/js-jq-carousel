@@ -37,6 +37,7 @@
     width: 90%;
     height: 100%;
     text-align: center;
+    position: relative;
 }
 .slide img {
     max-width: 100%;
@@ -47,7 +48,11 @@
     display: inline-block;
 }
 .dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     color: rgba(185,187,192,.9);
+    bottom: 10%;
 }
 .dots i {
     font-size: 15px;
