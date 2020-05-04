@@ -72,25 +72,42 @@ $('.prev').click(function() {
     elemento_corrente.addClass('active');
 
     $('i.active').removeClass('active');
-    $('this').addClass('active');
+    $(this).addClass('active');
   });
 
 
 //intercettare il click su button #start
-  // $('#start').click(function(){
-  //     var slideIndex = 0;
-  //     carousel();
-  //
-  //     function carousel() {
-  //       var i;
-  //       var x = document.getElementsByClassName("myslide");
-  //       for (i = 0; i < x.length; i++) {
-  //         x[i].style.display = "none";
-  //       }
-  //       slideIndex++;
-  //       if (slideIndex > x.length) {slideIndex = 1}
-  //       x[slideIndex-1].style.display = "block";
-  //       setTimeout(carousel, 2000); // l'immagine cambia ogni 2 secondi
-  //     }
-  //
-  // });
+  $('#start').click(function(){
+      var slideIndex = 0;
+      carousel();
+
+      function carousel() {
+          var img_corrente = $('img.active');
+          //creo la variabile pallino corrente con classe 'active' per recuperarla
+          var pallino_corrente = $('.fa-circle.active');
+          //tolgo la classe active all'immagine corrente per poterla poi applicare alla successiva
+          img_corrente.removeClass('active');
+          //rimuovo da pallino la classe active per poterla poi applicare al pallino successivo
+          pallino_corrente.removeClass('active');
+          //creo la variabile immagine successiva per recuperarla
+          var img_successiva = img_corrente.next('img');
+          //creo la variabile pallino successivo per recuperarlo
+          var pallino_successivo = pallino_corrente.next('.fa-circle');
+          //verifico che esista una img successiva
+          if (img_successiva.length != 0) {
+              //esiste l'img successiva quindi modifico l'img successiva con la classe active
+              img_successiva.addClass('active');
+              //modifico il pallino successivo con la classe active
+              pallino_successivo.addClass('active');
+          } else {
+              //non c'è un'img successiva allora torno alla prima img e applico la classe active
+              img_successiva = $('img:first-child');
+              img_successiva.addClass('active');
+              //modifico pallino pallino_successivo
+              pallino_successivo = $('.fa-circle:first-child');
+              pallino_successivo.addClass('active');
+          }
+          setTimeout(carousel, 2000); // l'immagine cambia ogni 2 secondi
+      }
+
+  });
