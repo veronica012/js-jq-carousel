@@ -35,35 +35,60 @@ $('.prev').click(function() {
     //creo la variabile img corrente con classe 'active' per recuperarla
     var img_corrente = $('img.active');
     console.log(img_corrente);
+    var pallino_corrente = $('.fa-circle.active');
     //tolgo la classe active all'immagine corrente per poterla poi applicare alla precedente
     img_corrente.removeClass('active');
+    pallino_corrente.removeClass('active');
     //creo la variabile immagine precedente per recuperarla
     var img_precedente = img_corrente.prev('img');
     console.log(img_precedente);
+    var pallino_precedente = pallino_corrente.prev('.fa-circle');
     //verifico che esista una img img_precedente
     if(img_precedente.length != 0) {
     //modifico l'img precedente con la classe active
         img_precedente.addClass('active');
+        pallino_precedente.addClass('active');
     } else {
          //se non c'è l'img precedente
          //torno sull'ultima foto e applico la classe active
         img_precedente = $('img:last-of-type');
         img_precedente.addClass('active');
+        pallino_precedente = $('.fa-circle:last-child');
+        pallino_precedente.addClass('active');
     }
 });
 
+
 //rendere i pallini cliccabili
 //intercettare il click sui pallini
-  $('.dots i').click(function(){
-    //creo la variabile per recupera l'indice_corrente
-    var indice_corrente = $(this).index();
-    //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
-    var elemento_corrente = $('img').eq(indice_corrente);
-    //rimuovo su immagine corrente la classe active
-    $('img.active').removeClass('active');
-    //modifico elemento corrente con la classe active
-    elemento_corrente.addClass('active');
-    
-    $('i.active').removeClass('active');
-    $('this').addClass('active');
+  // $('.dots i').click(function(){
+  //   //creo la variabile per recupera l'indice_corrente
+  //   var indice_corrente = $(this).index();
+  //   //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
+  //   var elemento_corrente = $('img').eq(indice_corrente);
+  //   //rimuovo su immagine corrente la classe active
+  //   $('img.active').removeClass('active');
+  //   //modifico elemento corrente con la classe active
+  //   elemento_corrente.addClass('active');
+  //
+  //   $('i.active').removeClass('active');
+  //   $('this').addClass('active');
+  // });
+
+  $('#start').click(function(){
+      var slideIndex = 0;
+      carousel();
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("myslide");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {slideIndex = 1}
+        x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+
   });
