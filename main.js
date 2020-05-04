@@ -61,34 +61,36 @@ $('.prev').click(function() {
 
 //rendere i pallini cliccabili
 //intercettare il click sui pallini
-  // $('.dots i').click(function(){
-  //   //creo la variabile per recupera l'indice_corrente
-  //   var indice_corrente = $(this).index();
-  //   //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
-  //   var elemento_corrente = $('img').eq(indice_corrente);
-  //   //rimuovo su immagine corrente la classe active
-  //   $('img.active').removeClass('active');
-  //   //modifico elemento corrente con la classe active
-  //   elemento_corrente.addClass('active');
-  //
-  //   $('i.active').removeClass('active');
-  //   $('this').addClass('active');
-  // });
+  $('.dots i').click(function(){
+    //creo la variabile per recupera l'indice_corrente
+    var indice_corrente = $(this).index();
+    //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
+    var elemento_corrente = $('img').eq(indice_corrente);
+    //rimuovo su immagine corrente la classe active
+    $('img.active').removeClass('active');
+    //modifico elemento corrente con la classe active
+    elemento_corrente.addClass('active');
 
-  $('#start').click(function(){
-      var slideIndex = 0;
-      carousel();
-
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("myslide");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > x.length) {slideIndex = 1}
-        x[slideIndex-1].style.display = "block";
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-      }
-
+    $('i.active').removeClass('active');
+    $('this').addClass('active');
   });
+
+
+//intercettare il click su button #start
+  // $('#start').click(function(){
+  //     var slideIndex = 0;
+  //     carousel();
+  //
+  //     function carousel() {
+  //       var i;
+  //       var x = document.getElementsByClassName("myslide");
+  //       for (i = 0; i < x.length; i++) {
+  //         x[i].style.display = "none";
+  //       }
+  //       slideIndex++;
+  //       if (slideIndex > x.length) {slideIndex = 1}
+  //       x[slideIndex-1].style.display = "block";
+  //       setTimeout(carousel, 2000); // l'immagine cambia ogni 2 secondi
+  //     }
+  //
+  // });

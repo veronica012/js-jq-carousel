@@ -62,3 +62,11 @@
 .dots i.active {
     color: black;
 }
+button {
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: rgba(185,187,192,.9);
+}
