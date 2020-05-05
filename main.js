@@ -37,17 +37,17 @@ $('.prev').click(function() {
 //rendere i pallini cliccabili
 //intercettare il click sui pallini
   $('.dots i').click(function(){
-
-    //creo la variabile per recupera l'indice_corrente
+    //creo la variabile per recupera l'indice del pallino clickato
     var indice_corrente = $(this).index();
-    //associo l'indice corrente all'immagine corrispondente creando la variabile elemento corrente
+    //associo l'indice del pallino clockato all'immagine che ha lo stesso indice del pallino
     var elemento_corrente = $('img').eq(indice_corrente);
     //rimuovo su immagine corrente la classe active
     $('img.active').removeClass('active');
-    //modifico elemento corrente con la classe active
+    //modifico elemento corrente cioè immagine che ha lo stesso indice del pallino con la classe active
     elemento_corrente.addClass('active');
 
     $('i.active').removeClass('active');
+    //this indica il dot clickato
     $(this).addClass('active');
   });
 
@@ -58,13 +58,12 @@ $('.prev').click(function() {
   });
 //click su button #pause
   $('#pause').click(function() {
-       clearTimeout(autoplay);
+       clearInterval(clock);
   });
 
 
 
   function next_image() {
-
       var img_corrente = $('img.active');
       //creo la variabile pallino corrente con classe 'active' per recuperarla
       var pallino_corrente = $('.fa-circle.active');
@@ -93,6 +92,5 @@ $('.prev').click(function() {
   }
 
 function autoplay() {
-    clock = setTimeout(next_image, 2000); // l'immagine cambia ogni 2 secondi
-
+    clock = setInterval(next_image, 2000); // l'immagine cambia ogni 2 secondi
 }
